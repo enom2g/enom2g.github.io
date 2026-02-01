@@ -8,18 +8,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #22d3ee;
-            --accent: #f43f5e;
-            --dark: #0f172a;
-            --light: #fafafa;
-            --gray: #64748b;
-            --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            --gradient-2: linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #8b5cf6 100%);
-            --gradient-3: linear-gradient(135deg, #f43f5e 0%, #f97316 50%, #fbbf24 100%);
+            /* 눈이 편안한 그린 올리브 계열 색상 */
+            --primary: #2E7D32;
+            --primary-dark: #276735;
+            --primary-light: #52B788;
+            --secondary: #3D9970;
+            --secondary-dark: #2F7D32;
+            --secondary-light: #66BB6A;
+            --accent: #FDB94E;
+            --accent-dark: #F4A261;
+            --success: #52B788;
+            --warning: #FFA726;
+            --error: #E74C3C;
+            --info: #5DADE2;
+            
+            /* 라이트 모드 색상 */
+            --light-primary: #2E7D32;
+            --light-primary-dark: #276735;
+            --light-secondary: #3D9970;
+            --light-accent: #FDB94E;
+            --light-text-primary: #FFFFFF;
+            --light-text-secondary: #2C3E50;
+            --light-text-muted: #6C757D;
+            --light-bg-primary: #FFFFFF;
+            --light-bg-secondary: #F8F9FA;
+            --light-bg-tertiary: #FAFAFA;
+            --light-border: #E8F5E8;
+            --light-card-shadow: 0 8px 32px rgba(46, 125, 50, 0.15);
+            
+            /* 다크 모드 색상 (눈의 피로 감소) */
+            --dark-primary: #52B788;
+            --dark-primary-dark: #4A9D5F;
+            --dark-secondary: #66BB6A;
+            --dark-accent: #FDB94E;
+            --dark-text-primary: #FFFFFF;
+            --dark-text-secondary: #E8F5E8;
+            --dark-text-muted: #A0A0A0;
+            --dark-bg-primary: #1A1A1A;
+            --dark-bg-secondary: #2D2D30;
+            --dark-bg-tertiary: #252528;
+            --dark-border: #3D9970;
+            --dark-card-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            
+            /* 공통 변수 */
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 35%, var(--accent) 100%);
+            --gradient-2: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-light) 50%, var(--warning) 100%);
+            --gradient-3: linear-gradient(135deg, var(--success) 0%, var(--accent) 50%, var(--info) 100%);
         }
 
         * {
@@ -29,12 +64,18 @@
         }
 
         body {
-            font-family: 'Noto Sans KR', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
+            font-family: 'Noto Sans KR', 'Inter', 'Apple SD Gothic Neo', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
             color: var(--dark);
             background: var(--light);
             overflow-x: hidden;
             position: relative;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
         /* Animated background */
@@ -46,9 +87,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(244, 63, 94, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(0, 128, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(40, 167, 69, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
             z-index: -1;
             animation: float 20s ease-in-out infinite;
         }
@@ -82,13 +123,15 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: 0.01em;
         }
 
         .nav-links {
@@ -101,9 +144,12 @@
             color: var(--dark);
             text-decoration: none;
             font-weight: 500;
+            font-size: 1.05rem;
             transition: var(--transition);
             position: relative;
-            padding: 0.5rem 0;
+            padding: 0.6rem 0;
+            letter-spacing: 0.02em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .nav-links a::after {
@@ -188,25 +234,31 @@
         }
 
         .hero-text h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            letter-spacing: 0.02em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .hero-text .subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-weight: 300;
+            font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+            font-weight: 400;
             margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.95);
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .hero-text .description {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .hero-stats {
@@ -250,21 +302,24 @@
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
             display: block;
             background: var(--gradient-3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: 0.02em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
+            font-size: 1rem;
+            opacity: 0.95;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
+            -webkit-font-smoothing: antialiased;
         }
 
         .hero-buttons {
@@ -587,8 +642,11 @@
 
         .timeline-content h3 {
             color: var(--dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             font-weight: 600;
+            font-size: 1.3rem;
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .timeline-content .company {
@@ -723,7 +781,7 @@
             overflow: hidden;
             box-shadow: var(--card-shadow);
             transition: var(--transition);
-            border: 1px solid #e5e7eb;
+            border: 1px solid var(--border-color);
             position: relative;
         }
 
@@ -812,10 +870,81 @@
 
         /* Footer */
         footer {
-            background: var(--dark);
-            color: white;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             text-align: center;
             padding: 3rem 2rem;
+            transition: var(--transition);
+        }
+
+        /* Dark mode specific styles */
+        body.dark-mode {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        body.dark-mode .hero {
+            background: linear-gradient(135deg, #276735 0%, #4A9D5F 35%, #2F7D32 100%);
+        }
+
+        body.dark-mode .hero::before {
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(46, 125, 50, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(82, 187, 106, 0.1) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.02) 50%, transparent 70%);
+        }
+
+        body.dark-mode nav {
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid rgba(61, 153, 112, 0.1);
+        }
+
+        body.dark-mode .project-card {
+            background: var(--dark-bg-secondary);
+            border-color: var(--dark-border);
+            box-shadow: var(--dark-card-shadow);
+        }
+
+        body.dark-mode .project-card::before {
+            background: linear-gradient(135deg, transparent 30%, rgba(82, 187, 106, 0.05) 50%, transparent 70%);
+        }
+
+        body.dark-mode .btn {
+            background: var(--dark-primary);
+            color: var(--dark-text-primary);
+        }
+
+        body.dark-mode .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--dark-text-primary);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        body.dark-mode .section-title::after {
+            background: var(--dark-primary);
+        }
+
+        body.dark-mode .timeline-content {
+            background: var(--dark-bg-secondary);
+            border-color: var(--dark-border);
+        }
+
+        body.dark-mode .timeline-date {
+            background: var(--dark-primary);
+        }
+
+        /* Theme toggle button positioning */
+        .theme-toggle {
+            backdrop-filter: blur(10px);
+        }
+
+        body.dark-mode .theme-toggle {
+            background: var(--dark-secondary);
+        }
+
+        /* Smooth theme transition */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         .footer-content {
@@ -834,9 +963,12 @@
         .footer-links a {
             color: white;
             text-decoration: none;
-            opacity: 0.8;
+            opacity: 0.9;
             transition: var(--transition);
             font-weight: 500;
+            font-size: 1.05rem;
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .footer-links a:hover {
@@ -1389,6 +1521,132 @@
             el.style.opacity = '0';
             observer.observe(el);
         });
+
+        // Dark/Light Mode Toggle Functionality
+        class ThemeManager {
+            constructor() {
+                this.currentTheme = localStorage.getItem('portfolio-theme') || 'light';
+                this.init();
+            }
+
+            init() {
+                this.applyTheme(this.currentTheme);
+                this.createToggle();
+                this.setupSystemPreference();
+            }
+
+            applyTheme(theme) {
+                const root = document.documentElement;
+                
+                if (theme === 'dark') {
+                    root.style.setProperty('--primary', 'var(--dark-primary)');
+                    root.style.setProperty('--primary-dark', 'var(--dark-primary-dark)');
+                    root.style.setProperty('--secondary', 'var(--dark-secondary)');
+                    root.style.setProperty('--accent', 'var(--dark-accent)');
+                    root.style.setProperty('--text-primary', 'var(--dark-text-primary)');
+                    root.style.setProperty('--text-secondary', 'var(--dark-text-secondary)');
+                    root.style.setProperty('--text-muted', 'var(--dark-text-muted)');
+                    root.style.setProperty('--bg-primary', 'var(--dark-bg-primary)');
+                    root.style.setProperty('--bg-secondary', 'var(--dark-bg-secondary)');
+                    root.style.setProperty('--bg-tertiary', 'var(--dark-bg-tertiary)');
+                    root.style.setProperty('--border-color', 'var(--dark-border)');
+                    root.style.setProperty('--card-shadow', 'var(--dark-card-shadow)');
+                    document.body.classList.add('dark-mode');
+                } else {
+                    root.style.setProperty('--primary', 'var(--light-primary)');
+                    root.style.setProperty('--primary-dark', 'var(--light-primary-dark)');
+                    root.style.setProperty('--secondary', 'var(--light-secondary)');
+                    root.style.setProperty('--accent', 'var(--light-accent)');
+                    root.style.setProperty('--text-primary', 'var(--light-text-primary)');
+                    root.style.setProperty('--text-secondary', 'var(--light-text-secondary)');
+                    root.style.setProperty('--text-muted', 'var(--light-text-muted)');
+                    root.style.setProperty('--bg-primary', 'var(--light-bg-primary)');
+                    root.style.setProperty('--bg-secondary', 'var(--light-bg-secondary)');
+                    root.style.setProperty('--bg-tertiary', 'var(--light-bg-tertiary)');
+                    root.style.setProperty('--border-color', 'var(--light-border)');
+                    root.style.setProperty('--card-shadow', 'var(--light-card-shadow)');
+                    document.body.classList.remove('dark-mode');
+                }
+                
+                this.currentTheme = theme;
+                localStorage.setItem('portfolio-theme', theme);
+                
+                // Update toggle button icon
+                const toggle = document.querySelector('.theme-toggle');
+                if (toggle) {
+                    toggle.innerHTML = theme === 'dark' ? '🌞' : '🌙';
+                }
+            }
+
+            createToggle() {
+                const toggle = document.createElement('button');
+                toggle.className = 'theme-toggle';
+                toggle.innerHTML = this.currentTheme === 'dark' ? '🌞' : '🌙';
+                toggle.title = '테마 전환';
+                toggle.setAttribute('aria-label', '테마 전환');
+                
+                // Style the toggle button
+                Object.assign(toggle.style, {
+                    position: 'fixed',
+                    top: '20px',
+                    right: '20px',
+                    background: 'var(--primary)',
+                    color: 'var(--text-primary)',
+                    border: 'none',
+                    borderRadius: '50%',
+                    width: '50px',
+                    height: '50px',
+                    fontSize: '24px',
+                    cursor: 'pointer',
+                    boxShadow: 'var(--card-shadow)',
+                    transition: 'var(--transition)',
+                    zIndex: '1001',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontFamily: 'Apple SD Gothic Neo, sans-serif'
+                });
+
+                // Hover effects
+                toggle.addEventListener('mouseenter', () => {
+                    toggle.style.transform = 'scale(1.1)';
+                    toggle.style.boxShadow = '0 16px 40px rgba(46, 125, 50, 0.25)';
+                });
+
+                toggle.addEventListener('mouseleave', () => {
+                    toggle.style.transform = 'scale(1)';
+                    toggle.style.boxShadow = 'var(--card-shadow)';
+                });
+
+                toggle.addEventListener('click', () => {
+                    const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
+                    this.applyTheme(newTheme);
+                });
+
+                document.body.appendChild(toggle);
+            }
+
+            setupSystemPreference() {
+                // Check user's system preference
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    if (!localStorage.getItem('portfolio-theme')) {
+                        this.applyTheme('dark');
+                    }
+                }
+                
+                // Listen for system theme changes
+                if (window.matchMedia) {
+                    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                        if (!localStorage.getItem('portfolio-theme')) {
+                            this.applyTheme(e.matches ? 'dark' : 'light');
+                        }
+                    });
+                }
+            }
+        }
+
+        // Initialize theme manager
+        const themeManager = new ThemeManager();
 
         // Add typing effect with glitch to hero title
         const heroTitle = document.querySelector('.hero-text h1');
