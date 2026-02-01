@@ -627,12 +627,8 @@
         }
 
         .timeline-date {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
             background: var(--primary);
-            color: white;
+            color: var(--text-primary);
             padding: 0.5rem 1rem;
             border-radius: 25px;
             font-weight: 600;
@@ -883,25 +879,30 @@
             color: var(--text-primary);
         }
 
+        body.dark-mode * {
+            background: var(--bg-primary) !important;
+            color: var(--text-primary) !important;
+        }
+
         body.dark-mode .hero {
-            background: linear-gradient(135deg, #276735 0%, #4A9D5F 35%, #2F7D32 100%);
+            background: linear-gradient(135deg, var(--dark-primary) 0%, var(--dark-secondary) 35%, var(--dark-accent) 100%);
         }
 
         body.dark-mode .hero::before {
             background: 
-                radial-gradient(circle at 20% 50%, rgba(46, 125, 50, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 20% 50%, rgba(82, 187, 106, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(82, 187, 106, 0.1) 0%, transparent 50%),
                 linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.02) 50%, transparent 70%);
         }
 
         body.dark-mode nav {
             background: rgba(26, 26, 26, 0.95);
-            border-bottom: 1px solid rgba(61, 153, 112, 0.1);
+            border-bottom: 1px solid var(--dark-border);
         }
 
         body.dark-mode .project-card {
             background: var(--dark-bg-secondary);
-            border-color: var(--dark-border);
+            border: 1px solid var(--dark-border);
             box-shadow: var(--dark-card-shadow);
         }
 
@@ -912,6 +913,12 @@
         body.dark-mode .btn {
             background: var(--dark-primary);
             color: var(--dark-text-primary);
+        }
+
+        body.dark-mode .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--dark-text-primary);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         body.dark-mode .btn-secondary {
@@ -933,18 +940,29 @@
             background: var(--dark-primary);
         }
 
+        body.dark-mode .timeline-content {
+            background: var(--dark-bg-secondary);
+            border-color: var(--dark-border);
+        }
+
+        body.dark-mode .timeline-date {
+            background: var(--dark-primary);
+        }
+
         /* Theme toggle button positioning */
         .theme-toggle {
             backdrop-filter: blur(10px);
+            border: 2px solid var(--border-color);
         }
 
         body.dark-mode .theme-toggle {
             background: var(--dark-secondary);
+            border: 2px solid var(--dark-border);
         }
 
         /* Smooth theme transition */
         * {
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .footer-content {
@@ -1474,7 +1492,7 @@
             </div>
             <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
                 <p style="opacity: 0.7;">
-                    © 2024 방욱재. All rights reserved. Built with ❤️ and data.
+                    © 2026 방욱재. All rights reserved. Built with ❤️ and data.
                 </p>
             </div>
         </div>
@@ -1616,6 +1634,21 @@
                 toggle.addEventListener('mouseleave', () => {
                     toggle.style.transform = 'scale(1)';
                     toggle.style.boxShadow = 'var(--card-shadow)';
+                });
+
+                // Dark mode hover effects
+                toggle.addEventListener('mouseenter', () => {
+                    if (document.body.classList.contains('dark-mode')) {
+                        toggle.style.transform = 'scale(1.1)';
+                        toggle.style.boxShadow = '0 16px 40px rgba(0, 0, 0, 0.3)';
+                    }
+                });
+
+                toggle.addEventListener('mouseleave', () => {
+                    if (document.body.classList.contains('dark-mode')) {
+                        toggle.style.transform = 'scale(1)';
+                        toggle.style.boxShadow = 'var(--dark-card-shadow)';
+                    }
                 });
 
                 toggle.addEventListener('click', () => {
