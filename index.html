@@ -8,18 +8,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #22d3ee;
-            --accent: #f43f5e;
-            --dark: #0f172a;
+            --primary: #008000;
+            --primary-dark: #006400;
+            --primary-light: #4CAF50;
+            --secondary: #228B22;
+            --secondary-dark: #1B5E20;
+            --secondary-light: #66BB6A;
+            --accent: #FF9800;
+            --accent-dark: #E68900;
+            --success: #4CAF50;
+            --warning: #FFA726;
+            --error: #DC3545;
+            --info: #2196F3;
+            --dark: #1a1a1a;
             --light: #fafafa;
-            --gray: #64748b;
+            --gray: #6c757d;
             --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
             --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            --gradient-2: linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #8b5cf6 100%);
-            --gradient-3: linear-gradient(135deg, #f43f5e 0%, #f97316 50%, #fbbf24 100%);
+            --gradient: linear-gradient(135deg, #228B22 0%, #4CAF50 50%, #FF9800 100%);
+            --gradient-2: linear-gradient(135deg, #008000 0%, #66BB6A 50%, #FFA726 100%);
+            --gradient-3: linear-gradient(135deg, #4CAF50 0%, #FF9800 50%, #2196F3 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #2c3e50;
+            --text-muted: #6c757d;
+            --border-color: #e1e4e8;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #ffffff;
         }
 
         * {
@@ -46,9 +60,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(244, 63, 94, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(0, 128, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(40, 167, 69, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
             z-index: -1;
             animation: float 20s ease-in-out infinite;
         }
