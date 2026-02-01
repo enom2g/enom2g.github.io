@@ -8,32 +8,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #008000;
-            --primary-dark: #006400;
-            --primary-light: #4CAF50;
-            --secondary: #228B22;
-            --secondary-dark: #1B5E20;
-            --secondary-light: #66BB6A;
-            --accent: #FF9800;
-            --accent-dark: #E68900;
-            --success: #4CAF50;
+            /* 눈이 편안한 그린 올리브 계열 색상 */
+            --primary: #2E7D32;
+            --primary-dark: #276735;
+            --primary-light: #6B8E23;
+            --secondary: #3D9970;
+            --secondary-dark: #2F7D32;
+            --secondary-light: #52B788;
+            --accent: #FDB94E;
+            --accent-dark: #F4A261;
+            --success: #66BB6A;
             --warning: #FFA726;
-            --error: #DC3545;
-            --info: #2196F3;
-            --dark: #1a1a1a;
-            --light: #fafafa;
-            --gray: #6c757d;
-            --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            --gradient: linear-gradient(135deg, #228B22 0%, #4CAF50 50%, #FF9800 100%);
-            --gradient-2: linear-gradient(135deg, #008000 0%, #66BB6A 50%, #FFA726 100%);
-            --gradient-3: linear-gradient(135deg, #4CAF50 0%, #FF9800 50%, #2196F3 100%);
-            --text-primary: #ffffff;
-            --text-secondary: #2c3e50;
-            --text-muted: #6c757d;
-            --border-color: #e1e4e8;
-            --bg-secondary: #f8f9fa;
-            --bg-tertiary: #ffffff;
+            --error: #E74C3C;
+            --info: #5DADE2;
+            --dark: #1A1A1A;
+            --light: #FAFAFA;
+            --gray: #6C757D;
+            --card-shadow: 0 8px 32px rgba(46, 125, 50, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --gradient: linear-gradient(135deg, #2E7D32 0%, #3D9970 35%, #FDB94E 100%);
+            --gradient-2: linear-gradient(135deg, #276735 0%, #52B788 50%, #FFA726 100%);
+            --gradient-3: linear-gradient(135deg, #66BB6A 0%, #FDB94E 50%, #5DADE2 100%);
+            --text-primary: #FFFFFF;
+            --text-secondary: #2C3E50;
+            --text-muted: #6C757D;
+            --border-color: #E8F5E8;
+            --bg-secondary: #F8F9FA;
+            --bg-tertiary: #FFFFFF;
         }
 
         * {
@@ -43,12 +44,18 @@
         }
 
         body {
-            font-family: 'Noto Sans KR', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
+            font-family: 'Noto Sans KR', 'Inter', 'Apple SD Gothic Neo', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
             color: var(--dark);
             background: var(--light);
             overflow-x: hidden;
             position: relative;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
         /* Animated background */
@@ -96,13 +103,15 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: 0.01em;
         }
 
         .nav-links {
@@ -115,9 +124,12 @@
             color: var(--dark);
             text-decoration: none;
             font-weight: 500;
+            font-size: 1.05rem;
             transition: var(--transition);
             position: relative;
-            padding: 0.5rem 0;
+            padding: 0.6rem 0;
+            letter-spacing: 0.02em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .nav-links a::after {
@@ -202,25 +214,31 @@
         }
 
         .hero-text h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            letter-spacing: 0.02em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .hero-text .subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-weight: 300;
+            font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+            font-weight: 400;
             margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.95);
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .hero-text .description {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .hero-stats {
@@ -264,21 +282,24 @@
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
             display: block;
             background: var(--gradient-3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: 0.02em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
+            font-size: 1rem;
+            opacity: 0.95;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
+            -webkit-font-smoothing: antialiased;
         }
 
         .hero-buttons {
@@ -601,8 +622,11 @@
 
         .timeline-content h3 {
             color: var(--dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             font-weight: 600;
+            font-size: 1.3rem;
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .timeline-content .company {
@@ -737,7 +761,7 @@
             overflow: hidden;
             box-shadow: var(--card-shadow);
             transition: var(--transition);
-            border: 1px solid #e5e7eb;
+            border: 1px solid var(--border-color);
             position: relative;
         }
 
@@ -848,9 +872,12 @@
         .footer-links a {
             color: white;
             text-decoration: none;
-            opacity: 0.8;
+            opacity: 0.9;
             transition: var(--transition);
             font-weight: 500;
+            font-size: 1.05rem;
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .footer-links a:hover {
